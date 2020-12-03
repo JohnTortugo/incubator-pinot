@@ -180,6 +180,10 @@
               <mainClass>org.apache.pinot.perf.StringDictionaryPerfTest</mainClass>
               <name>pinot-StringDictionaryPerfTest</name>
             </program>
+            <program>
+              <mainClass>org.apache.pinot.perf.DirectByteBufferAllocTest</mainClass>
+              <name>pinot-DirectByteBufferAllocTest</name>
+            </program>
           </programs>
           <repositoryLayout>flat</repositoryLayout>
           <repositoryName>lib</repositoryName>
@@ -194,7 +198,7 @@
           <includeConfigurationDirectoryInClasspath>false</includeConfigurationDirectoryInClasspath>
           <assembleDirectory>${project.build.directory}/${project.artifactId}-pkg</assembleDirectory>
           <!-- Extra JVM arguments that will be included in the bin scripts -->
-          <extraJvmArguments>-Xms24G -Xmx24G -Dlog4j2.configurationFile=log4j2.xml</extraJvmArguments>
+          <extraJvmArguments>-Xms1G -Xmx1G -XX:+UseG1GC -XX:MaxDirectMemorySize=1G -XX:+DisableExplicitGC -Dlog4j2.configurationFile=log4j2.xml</extraJvmArguments>
           <!-- Generate bin scripts for windows and unix pr default -->
           <platforms>
             <platform>unix</platform>
